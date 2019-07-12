@@ -6,6 +6,7 @@ function setRem() {
     //得到html的Dom元素
     let htmlDom = document.getElementsByTagName('html')[0];
     //设置根元素字体大小
+	htmlWidth = htmlWidth >1024?1024:htmlWidth//最大1024px，避免在pc端时铺满
     htmlDom.style.fontSize = htmlWidth / 20 + 'px';
 }
 // 初始化

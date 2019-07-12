@@ -1,28 +1,45 @@
 <style lang="scss" scoped>
-  .box{
-    width: 100px;
-    height: 100px;
-    background-color: pink;
-  }
+	.home{
+		min-height: 100vh;
+		
+	}
 </style>
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <div class="box"></div>
-    <van-button type="default">默认按钮</van-button>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <van-button @click="clickBtn" type="default">默认按钮</van-button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'home',
   components: {
-    HelloWorld
-  }
+    
+  },
+  data(){
+    return{
+
+    }
+  },
+  mounted() {
+    
+  },
+  methods: {
+    clickBtn(){
+      this.$axios.post('https://umapdev.dfmc.com.cn/smart/pc-role/getCompanyLeaderList', {
+        firstName: 'Fred',
+        lastName: 'Flintstone'
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+     
+    }
+  },
 }
 </script>
